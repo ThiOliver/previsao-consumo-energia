@@ -1,0 +1,18 @@
+# Ambientes virtuais Python
+.venv/
+venv/
+
+# Arquivos temporários gerados pelo Python
+__pycache__/
+*.py[cod]
+
+# Arquivos temporários de notebooks
+.ipynb_checkpoints/
+
+# Cache de testes
+.pytest_cache/
+
+# Configurações locais que podem conter credenciais
+.env
+.env.*
+!.env.example
