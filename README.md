@@ -53,8 +53,43 @@ Projeto em preparação. Ainda não há modelo treinado nem API implementada.
 
 ## Instalação e execução
 
-As instruções serão adicionadas e verificadas conforme a implementação
-avançar.
+### Preparação do ambiente local
+
+Ambiente verificado em Linux com Python 3.12.3.
+
+No terminal, dentro da pasta do projeto, crie o ambiente virtual:
+
+```bash
+python3 -m venv .venv
+```
+
+Ative o ambiente:
+
+```bash
+source .venv/bin/activate
+```
+
+Confira o Python e o instalador de bibliotecas utilizados:
+
+```bash
+which python
+python --version
+python -m pip --version
+```
+
+Os caminhos do Python e do pip devem apontar para a pasta `.venv`
+do projeto.
+
+Ao abrir um novo terminal, ative novamente o ambiente.
+Não é necessário recriá-lo.
+
+A pasta `.venv` é local e não é versionada pelo Git.
+
+### Dependências e aplicação
+
+As dependências do projeto ainda não foram instaladas.
+As instruções de instalação e execução da API serão adicionadas
+conforme o desenvolvimento avançar.
 
 ## Documentação da API
 
