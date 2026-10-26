@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 dados = pd.read_csv("data/energydata_complete.csv")
 dados["date"]= pd.to_datetime(dados["date"])
@@ -28,3 +29,15 @@ colunas_consulta = ["date", "Appliances"]
 
 print("Dez registros com maior consumo: ")
 print(maiores_consumos[colunas_consulta])
+
+plt.figure(figsize=(8, 5))
+plt.hist(dados["Appliances"], bins=30, edgecolor="black")
+plt.title("Distribuição do consumo dos aparelhos")
+plt.xlabel("Energia por intervalo de 10 minutos (Wh)")
+plt.ylabel("Quantidade de registros")
+
+plt.tight_layout()
+plt.savefig("distribuicao_consumo.png")
+plt.close()
+
+print("Gráfico salvo em distribuicao_consumo.png")
