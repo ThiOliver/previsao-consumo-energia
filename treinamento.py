@@ -141,7 +141,7 @@ if __name__ == "__main__":
     print(f"R²: {r2_floresta:.4f}")
 
 
-        # Escolha feita a partir da validação: regressão linear.
+    # Escolha feita a partir da validação: regressão linear.
     # Mantém o modelo já ajustado somente no treino.
     modelo_escolhido = modelo
 
@@ -203,7 +203,7 @@ if __name__ == "__main__":
     print("Verificação: previsões equivalentes.")
 
 
-        # Reúne as métricas calculadas, sem arredondar os valores armazenados.
+    # Reúne as métricas calculadas, sem arredondar os valores armazenados.
     resultados = [
         ["validacao", "referencia", mae_referencia, mse_referencia, r2_referencia],
         ["validacao", "regressao_linear", mae_modelo, mse_modelo, r2_modelo],

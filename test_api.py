@@ -125,3 +125,19 @@ def test_carregamento_unico():
 
         # Confere a limpeza após encerrar o ciclo da aplicação.
         assert app.state.modelo is None
+
+
+# Erros internos de valor não devem parecer erros de domínio do usuário.
+def test_valueerror_interno(cliente):
+    with patch("routers.prever_consumo", side_effect=ValueError("segredo interno")):
+        resposta = cliente.post("/predict", json={"Appliances": 60, "hora": 17, "dia_da_semana": 0})
+    assert resposta.status_code == 500
+    assert "segredo" not in resposta.text
+
+
+# Confere a validação da saída mesmo se um serviço defeituoso ignorar as regras.
+@pytest.mark.parametrize("resultado", [-1.0, float("nan"), float("inf")])
+def test_saida_invalida(cliente, resultado):
+    with patch("routers.prever_consumo", return_value=resultado):
+        resposta = cliente.post("/predict", json={"Appliances": 60, "hora": 17, "dia_da_semana": 0})
+    assert resposta.status_code == 500
