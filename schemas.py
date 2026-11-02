@@ -41,6 +41,7 @@ class SaidaPrevisao(BaseModel):
     )
 
     previsao_wh: float = Field(
+        ge=0,
         description="Estimativa de energia para o próximo intervalo de dez minutos.",
     )
 

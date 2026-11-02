@@ -13,6 +13,11 @@ PASTA_PROJETO = Path(__file__).resolve().parent
 CAMINHO_MODELO = PASTA_PROJETO / "models" / "pipeline_consumo.joblib"
 
 
+# Identifica apenas previsões incompatíveis com o domínio de energia.
+class PrevisaoInvalidaError(ValueError):
+    """O modelo produziu uma estimativa negativa para entradas válidas."""
+
+
 # Recupera o pipeline treinado para uso pela aplicação.
 def carregar_modelo():
     # Interrompe a inicialização com uma mensagem clara se faltar o artefato.
@@ -42,7 +47,7 @@ def prever_consumo(modelo, dados_entrada):
     # A regressão linear pode produzir valores negativos.
     # Não altera silenciosamente a previsão: rejeita uma estimativa fisicamente inválida.
     if resultado < 0:
-        raise ValueError(
+        raise PrevisaoInvalidaError(
             "O modelo não produziu uma estimativa não negativa para estas entradas."
         )
 

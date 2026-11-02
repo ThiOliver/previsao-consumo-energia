@@ -4,7 +4,7 @@ from fastapi import APIRouter, HTTPException, Request
 # Esquemas de entrada e saída da API.
 from schemas import EntradaPrevisao, SaidaPrevisao, SaidaSaude
 # Serviço que executa a previsão sem conhecer os códigos HTTP.
-from services import prever_consumo
+from services import PrevisaoInvalidaError, prever_consumo
 
 router = APIRouter()
 
@@ -36,7 +36,7 @@ def realizar_previsao(entrada: EntradaPrevisao, request: Request):
         # Valida também o conteúdo produzido antes de devolver a resposta.
         return SaidaPrevisao(previsao_wh=resultado)
 
-    except ValueError as erro:
+    except PrevisaoInvalidaError as erro:
         # A solicitação não pôde produzir uma previsão válida para o domínio.
         raise HTTPException(status_code=400, detail=str(erro)) from erro
 
