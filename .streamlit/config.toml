@@ -1,0 +1,8 @@
+# Tema escuro aplicado também aos campos, tabelas e gráficos do Streamlit.
+[theme]
+base = "dark"
+primaryColor = "#2dd4bf"
+backgroundColor = "#0b1220"
+secondaryBackgroundColor = "#142033"
+textColor = "#e6edf7"
+font = "sans serif"
