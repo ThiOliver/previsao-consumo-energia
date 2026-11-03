@@ -195,6 +195,6 @@ Melhorias futuras: testar mais variáveis e defasagens com validação temporal,
 
 ## Vídeo de apresentação
 
-**PENDENTE: inserir aqui o link real do vídeo no Google Drive antes do merge em main e da entrega.**
+[Assistir à apresentação — pasta no Google Drive](https://drive.google.com/drive/folders/1P5DbxOMikxq3jM-KBepSzlako3b6pAdj?usp=drive_link)
 
 O vídeo deve ter até dez minutos, com acesso de leitor para qualquer pessoa com o link. Confira a abertura sem login e envie os links do vídeo e do repositório no AVA. Após a entrega, mantenha o repositório sem alterações até a avaliação, conforme o PDF.
